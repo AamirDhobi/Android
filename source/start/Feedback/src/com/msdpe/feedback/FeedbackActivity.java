@@ -12,9 +12,9 @@ import android.widget.TextView;
 
 public class FeedbackActivity extends Activity {
 	
-	private String TAG = "FeedbackActivity";
-	private EditText txtComments;
-	private TextView lblCharactersLeft;
+	private final String TAG = "FeedbackActivity";
+	private EditText mTxtComments;
+	private TextView mLblCharactersLeft;
 	private int mMaxChars;
 
 	@Override
@@ -22,15 +22,15 @@ public class FeedbackActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_feedback);
 
-		lblCharactersLeft = (TextView) findViewById(R.id.lblCharactersLeft);
-		txtComments = (EditText) findViewById(R.id.txtComments);
-		txtComments.addTextChangedListener(new CommentWatcher());
+		mLblCharactersLeft = (TextView) findViewById(R.id.lblCharactersLeft);
+		mTxtComments = (EditText) findViewById(R.id.txtComments);
+		mTxtComments.addTextChangedListener(new CommentWatcher());
 		//Set max character limit
 		InputFilter[] FilterArray = new InputFilter[1];
 		mMaxChars = getResources().getInteger(R.integer.comments_max_length);
 		FilterArray[0] = new InputFilter.LengthFilter(mMaxChars);
-		txtComments.setFilters(FilterArray);
-		lblCharactersLeft.setText(mMaxChars + " characters left");
+		mTxtComments.setFilters(FilterArray);
+		mLblCharactersLeft.setText(mMaxChars + " characters left");
 		
 	}
 
@@ -51,7 +51,7 @@ public class FeedbackActivity extends Activity {
 		public void onTextChanged(CharSequence s, int start, int before, int count) {
 			int charsLeft = mMaxChars - start - count;
 			if (charsLeft >= 0) {
-				lblCharactersLeft.setText(charsLeft + " characters left");
+				mLblCharactersLeft.setText(charsLeft + " characters left");
 			}
 		}
 		
