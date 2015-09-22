@@ -1,3 +1,9 @@
+---
+services:
+platforms:
+author: azure
+---
+
 ﻿# Android - Mobile Services - Feedback
 This is a feedback sample which makes use of Windows Azure Mobile Services for it's data storage.  It can be used as a feedback form inside of an application.  It can also be easily added to an existing Android project.  This sample was built using Eclipse, the Android SDK, and the Andorid Mobile Services SDK.  It was built using a minimum SDK version of 8 and a target version of 17.
 
